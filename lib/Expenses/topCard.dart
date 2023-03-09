@@ -1,11 +1,16 @@
 
 
+import 'dart:async';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
+
 import 'package:flutter/material.dart';
+
+
 
 import '../Firebase/fireBase.dart';
 
-class TopNeuCard extends StatelessWidget {
+class TopNeuCard extends StatefulWidget {
   // final String balance;
   // final String income;
   // final String expense;
@@ -17,7 +22,13 @@ class TopNeuCard extends StatelessWidget {
   });
 
   @override
+  State<TopNeuCard> createState() => _TopNeuCardState();
+}
+
+class _TopNeuCardState extends State<TopNeuCard> {
+  @override
   Widget build(BuildContext context) {
+
     final Stream<QuerySnapshot> ref = FirebaseFirestore.instance
         .collection('USERDATA')
         .doc(FirebaseApi.getuid())
@@ -46,117 +57,121 @@ else{
 expense =expense+double.parse(doc["amount"] );}
 
 }
-        return Padding(
-          padding: const EdgeInsets.all(4.0),
-          child: Container(
-            height: h/5,
-             width: w * .9,
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15),
-                color: const Color.fromARGB(255, 183, 193, 255),
-                boxShadow: [
-                  BoxShadow(
-                      color: Colors.grey.shade500,
-                      offset: const Offset(4.0, 4.0),
-                      blurRadius: 15.0,
-                      spreadRadius: 1.0),
-                  const BoxShadow(
-                      color: Colors.white,
-                      offset: Offset(-4.0, -4.0),
-                      blurRadius: 15.0,
-                      spreadRadius: 1.0),
-                ]),
-            child: Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Text('B A L A N C E',
-                      style: TextStyle(color: Colors.grey[500], fontSize: 16)),
-                  Text(
-                    '₹${incomeAmount-expense}',
-                    style: TextStyle(color: Colors.grey[800], fontSize: 40),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Row(
-                          children: [
-                            Container(
-                              padding: const EdgeInsets.all(10),
-                              decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                color: Colors.grey[200],
-                              ),
-                              child: const Center(
-                                child: Icon(
-                                  Icons.arrow_upward,
-                                  color: Colors.green,
-                                ),
-                              ),
-                            ),
-                            const SizedBox(
-                              width: 10,
-                            ),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text('Income',
-                                    style: TextStyle(color: Colors.grey[500])),
-                                const SizedBox(
-                                  height: 5,
-                                ),
-                                Text('₹$incomeAmount',
-                                    style: TextStyle(
-                                        color: Colors.grey[600],
-                                        fontWeight: FontWeight.bold)),
-                              ],
-                            )
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            Container(
-                              padding: const EdgeInsets.all(10),
-                              decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                color: Colors.grey[200],
-                              ),
-                              child: const Center(
-                                child: Icon(
-                                  Icons.arrow_downward,
-                                  color: Colors.red,
-                                ),
-                              ),
-                            ),
-                            const SizedBox(
-                              width: 10,
-                            ),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text('Expense',
-                                    style: TextStyle(color: Colors.grey[500])),
-                                const SizedBox(
-                                  height: 5,
-                                ),
-                                Text('₹$expense',
-                                    style: TextStyle(
-                                        color: Colors.grey[600],
-                                        fontWeight: FontWeight.bold)),
-                              ],
-                            )
-                          ],
-                        )
-                      ],
+          return Padding(
+            padding: const EdgeInsets.all(4.0),
+            child: Container(
+              height: h / 5,
+              width: w * .9,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(15),
+                  color: const Color.fromARGB(255, 183, 193, 255),
+                  boxShadow: [
+                    BoxShadow(
+                        color: Colors.grey.shade500,
+                        offset: const Offset(4.0, 4.0),
+                        blurRadius: 15.0,
+                        spreadRadius: 1.0),
+                    const BoxShadow(
+                        color: Colors.white,
+                        offset: Offset(-4.0, -4.0),
+                        blurRadius: 15.0,
+                        spreadRadius: 1.0),
+                  ]),
+              child: Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    const Text('E X P E N S E S - R E P O R T',
+                        style: TextStyle(
+                            color: Color.fromARGB(255, 115, 106, 106),
+                            fontSize: 16)),
+                    Text(
+                      '₹${incomeAmount - expense}',
+                      style: TextStyle(color: Colors.grey[800], fontSize: 40),
                     ),
-                  )
-                ],
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Row(
+                            children: [
+                              Container(
+                                padding: const EdgeInsets.all(10),
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  color: Colors.grey[200],
+                                ),
+                                child: const Center(
+                                  child: Icon(
+                                    Icons.arrow_upward,
+                                    color: Colors.green,
+                                  ),
+                                ),
+                              ),
+                              const SizedBox(
+                                width: 10,
+                              ),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text('Income',
+                                      style:
+                                          TextStyle(color: Colors.grey[500])),
+                                  const SizedBox(
+                                    height: 5,
+                                  ),
+                                  Text('₹$incomeAmount',
+                                      style: TextStyle(
+                                          color: Colors.grey[600],
+                                          fontWeight: FontWeight.bold)),
+                                ],
+                              )
+                            ],
+                          ),
+                          Row(
+                            children: [
+                              Container(
+                                padding: const EdgeInsets.all(10),
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  color: Colors.grey[200],
+                                ),
+                                child: const Center(
+                                  child: Icon(
+                                    Icons.arrow_downward,
+                                    color: Colors.red,
+                                  ),
+                                ),
+                              ),
+                              const SizedBox(
+                                width: 10,
+                              ),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text('Expense',
+                                      style:
+                                          TextStyle(color: Colors.grey[500])),
+                                  const SizedBox(
+                                    height: 5,
+                                  ),
+                                  Text('₹$expense',
+                                      style: TextStyle(
+                                          color: Colors.grey[600],
+                                          fontWeight: FontWeight.bold)),
+                                ],
+                              )
+                            ],
+                          )
+                        ],
+                      ),
+                    )
+                  ],
+                ),
               ),
             ),
-          ),
-        );
+          );
       }
     );
   }
