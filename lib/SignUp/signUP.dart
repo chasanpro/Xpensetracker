@@ -5,7 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 import 'package:animated_button/animated_button.dart';
 import 'package:lottie/lottie.dart';
-import 'package:xpensetrack/Login.dart';
+import 'package:xpensetrack/LogIn/Login.dart';
 
 class signUP extends StatefulWidget {
   const signUP({super.key});

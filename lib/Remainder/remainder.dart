@@ -3,8 +3,8 @@ import 'package:animated_button/animated_button.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:xpensetrack/fireBase.dart';
-import 'package:xpensetrack/widgets.dart';
+import 'package:xpensetrack/Firebase/fireBase.dart';
+import 'package:xpensetrack/Widgets/widgets.dart';
 
 class remainderScreen extends StatefulWidget {
   const remainderScreen({super.key});

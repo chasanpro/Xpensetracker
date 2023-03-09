@@ -1,9 +1,9 @@
 import 'package:animated_button/animated_button.dart';
 import 'package:flutter/material.dart';
-import 'package:xpensetrack/cashFlow.dart';
-import 'package:xpensetrack/fireBase.dart';
-import 'package:xpensetrack/topCard.dart';
-import 'package:xpensetrack/widgets.dart';
+import 'package:xpensetrack/Expenses/cashFlow.dart';
+import 'package:xpensetrack/Firebase/fireBase.dart';
+import 'package:xpensetrack/Expenses/topCard.dart';
+import 'package:xpensetrack/Widgets/widgets.dart';
 
 class expenses extends StatefulWidget {
   const expenses({super.key});

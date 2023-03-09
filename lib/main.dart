@@ -1,7 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:xpensetrack/decision.dart';
-import 'firebase_options.dart';
+import 'package:xpensetrack/Widgets/router.dart';
+import 'Firebase/firebase_options.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();

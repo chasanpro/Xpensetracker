@@ -8,7 +8,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:animated_button/animated_button.dart';
 import 'package:lottie/lottie.dart';
 import 'package:xpensetrack/Home.dart';
-import 'package:xpensetrack/signUP.dart';
+import 'package:xpensetrack/SignUp/signUP.dart';
 
 
 

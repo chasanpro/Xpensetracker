@@ -1,8 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:xpensetrack/transaction.dart';
+import 'package:xpensetrack/Expenses/transaction.dart';
 
-import 'fireBase.dart';
+import '../Firebase/fireBase.dart';
 
 class cashflow extends StatefulWidget {
   const cashflow({super.key});

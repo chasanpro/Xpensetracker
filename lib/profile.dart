@@ -1,9 +1,9 @@
 import 'package:animated_button/animated_button.dart';
 import 'package:flutter/material.dart';
-import 'package:xpensetrack/widgets.dart';
+import 'package:xpensetrack/Widgets/widgets.dart';
 
-import 'fireBase.dart';
-import 'Login.dart';
+import 'Firebase/fireBase.dart';
+import 'LogIn/Login.dart';
 
 class profile extends StatelessWidget {
   const profile({super.key});

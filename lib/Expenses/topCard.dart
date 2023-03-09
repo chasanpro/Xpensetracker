@@ -3,7 +3,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
-import 'fireBase.dart';
+import '../Firebase/fireBase.dart';
 
 class TopNeuCard extends StatelessWidget {
   // final String balance;
