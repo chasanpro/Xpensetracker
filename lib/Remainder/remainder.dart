@@ -22,7 +22,7 @@ class _remainderScreenState extends State<remainderScreen> {
 
     double responsiveHeight = h/1.2;
     late String? name ,amount,date;
- 
+    final iskeyboard = MediaQuery.of(context).viewInsets.bottom != 0;
 
     return   Scaffold(
     extendBody: true,
@@ -30,6 +30,7 @@ body: Center(
   child:   Column(mainAxisAlignment: MainAxisAlignment.center,
   children:  [
     const SizedBox(height: 30,),
+
   styledText("Remainders", 40, const Color.fromARGB(255, 3, 31, 54)),
     styledText("TAP ON CARD TO CANCEL THE REAMINDER", 10, const Color.fromARGB(255, 14, 71, 119)),
  

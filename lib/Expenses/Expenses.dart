@@ -1,5 +1,3 @@
-
-
 import 'package:animated_button/animated_button.dart';
 import 'package:flutter/material.dart';
 import 'package:xpensetrack/cashFlow.dart';
@@ -15,54 +13,49 @@ class expenses extends StatefulWidget {
 }
 
 class _expensesState extends State<expenses> {
-
   @override
   Widget build(BuildContext context) {
-  // Getting height(h) and Width w form MediaQuery
-  double h = MediaQuery.of(context).size.height;
+    // Getting height(h) and Width w form MediaQuery
+    double h = MediaQuery.of(context).size.height;
     double w = MediaQuery.of(context).size.width;
-    return   Material(
-    child: Scaffold(
-  extendBody: true,
-      body: Center(
-        child: Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children:  [
-const SizedBox(height: 20,),
-      const TopNeuCard(balance: '1000', expense: '200', income: '600',),
-
-              
-const Spacer(),
-Stack(
-  children:  [ 
-  SizedBox(
-    height: h*.68,
-    width: w*.9,
-    child: const cashflow()
-  ),
-  Positioned(top: 500,
-  left: w/2.6,
-  
-  child:  AnimatedButton(
+    final iskeyboard = MediaQuery.of(context).viewInsets.bottom != 0;
+    return Material(
+      child: Scaffold(
+        extendBody: true,
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              const SizedBox(
+                height: 20,
+              ),
+              const TopNeuCard(),
+              Stack(children: [
+                SizedBox(
+                    height: h * .68, width: w * .9, child: const cashflow()),
+                Positioned(
+                  top: 500,
+                  left: w / 2.6,
+                  child: AnimatedButton(
                     height: 50,
                     onPressed: () {
-_newTransaction(context);
+                      _newTransaction(context);
                     },
                     width: 60,
                     color: const Color.fromARGB(255, 183, 193, 255),
-                    child: styledText(
-                        "+", 30, const Color.fromARGB(255, 0, 0, 0)),
+                    child:
+                        styledText("+", 30, const Color.fromARGB(255, 0, 0, 0)),
                   ),
-                )]
-),
-const SizedBox(height: 70,)
-         
-              
-
-        
-             
-        ],),
+                )
+              ]),
+              const SizedBox(
+                height: 70,
+              )
+            ],
+          ),
+        ),
       ),
-    ),);
+    );
   }
 }
 
@@ -88,7 +81,7 @@ void _newTransaction(context) {
                       children: [
                         const Text('Expense'),
                         Switch(
-                        activeColor:   const Color.fromARGB(255, 183, 193, 255),
+                          activeColor: const Color.fromARGB(255, 183, 193, 255),
                           value: _isIncome,
                           onChanged: (newValue) {
                             setState(() {
@@ -108,7 +101,7 @@ void _newTransaction(context) {
                           child: Form(
                             key: _formKey,
                             child: TextFormField(
-                            keyboardType: TextInputType.number,
+                              keyboardType: TextInputType.number,
                               decoration: const InputDecoration(
                                 border: OutlineInputBorder(),
                                 hintText: 'Amount?',
@@ -159,12 +152,10 @@ void _newTransaction(context) {
                       style: TextStyle(color: Color.fromARGB(255, 0, 0, 0))),
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
-                    late String  expenseOrIncome ;
-                    if (!_isIncome){
-                    expenseOrIncome= "expense";
-                    
-                    }
-                    else{
+                      late String expenseOrIncome;
+                      if (!_isIncome) {
+                        expenseOrIncome = "expense";
+                      } else {
                         expenseOrIncome = "income";
                       }
                       Map<String, dynamic> transactionData = {
@@ -172,14 +163,13 @@ void _newTransaction(context) {
                         'amount': _textcontrollerAMOUNT.text,
                         'expenseOrIncome': expenseOrIncome
                       };
-                       print(transactionData);
-                       String?  uid = FirebaseApi.getuid();
-                       FirebaseApi.updateTransaction(uid! , transactionData);
-                       _textcontrollerAMOUNT.clear();
-                       _textcontrollerITEM.clear();
+                      print(transactionData);
+                      String? uid = FirebaseApi.getuid();
+                      FirebaseApi.updateTransaction(uid!, transactionData);
+                      _textcontrollerAMOUNT.clear();
+                      _textcontrollerITEM.clear();
                       Navigator.of(context).pop();
                     }
-                   
                   },
                 )
               ],

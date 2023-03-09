@@ -6,14 +6,14 @@ import 'package:flutter/material.dart';
 import 'fireBase.dart';
 
 class TopNeuCard extends StatelessWidget {
-  final String balance;
-  final String income;
-  final String expense;
+  // final String balance;
+  // final String income;
+  // final String expense;
 
   const TopNeuCard({super.key, 
-    required this.balance,
-    required this.expense,
-    required this.income,
+    // required this.balance,
+    // required this.expense,
+    // required this.income,
   });
 
   @override

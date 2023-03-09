@@ -1,7 +1,7 @@
 // ignore: file_names
 import 'package:dot_navigation_bar/dot_navigation_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:xpensetrack/expense.dart';
+import 'package:xpensetrack/Expenses.dart';
 import 'package:xpensetrack/profile.dart';
 import 'package:xpensetrack/remainder.dart';
 

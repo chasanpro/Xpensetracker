@@ -3,8 +3,8 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:xpensetrack/Home.dart';
 import 'package:xpensetrack/signUP.dart';
 
-class decision extends StatelessWidget {
-  const decision({super.key});
+class router extends StatelessWidget {
+  const router({super.key});
 
   @override
   Widget build(BuildContext context) {

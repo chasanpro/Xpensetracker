@@ -13,6 +13,7 @@ class profile extends StatelessWidget {
     return Material(
     child: Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
 children: [
+styledText("Current User EMAIL:", 20, Colors.black),
 styledText(FirebaseApi.getUserID()!, 20, Colors.black),
 AnimatedButton(onPressed: (){
 FirebaseApi.logOut();
@@ -20,7 +21,8 @@ FirebaseApi.logOut();
                     MaterialPageRoute(builder: (context) => const Login()));
 
 },color: const Color(0xFFe2e6fe), child:  styledText("Logout ",18,Colors.black)
-)
+),
+          styledText("CHAITANYA DAMARASINGU", 12, Colors.black),
 ],
     ),);
   }
